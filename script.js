@@ -28,10 +28,24 @@ addButtonEl.addEventListener("click", function () {
 
   clearInputField();
   addItemToList(inputValue);
-  
+
 });
 
 /* --------------- Functions  --------------- */
+
+onValue(shoppingListInDB, function(snapshot) {
+    let itemsArray = Object.values(snapshot.val())
+    
+    clearShoppingListEl()
+    
+    for (let i = 0; i < itemsArray.length; i++) {
+        appendItemToShoppingListEl(itemsArray[i])
+    }
+})
+
+function clearShoppingListEl() {
+    shoppingListEl.innerHTML = ""
+}
 
 function clearInputField() {
   inputFieldEl.value = "";
