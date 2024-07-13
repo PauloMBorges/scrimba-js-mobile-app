@@ -9,6 +9,7 @@ html, body {
     padding: 0;
     font-family: 'Rubik', sans-serif;
     background-color: #EEF0F4;
+    color: #432000;
 }
 
 .container {
@@ -44,6 +45,13 @@ button {
     font-size: 20px;
     text-align: center;
     font-family: 'Rubik', sans-serif;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #432000;
+    cursor: pointer;
 }
 
 ul {
@@ -53,6 +61,7 @@ ul {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 ul li {
@@ -62,5 +71,10 @@ ul li {
     border-radius: 8px;
     flex-grow: 1;
     text-align: center;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2)
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+ul li:hover {
+    background-color: #FFECC7;
 }
