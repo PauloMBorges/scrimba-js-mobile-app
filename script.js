@@ -5,6 +5,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -56,12 +57,14 @@ function clearInputField() {
 }
 
 function appendItemToShoppingListEl(item) {
-    let itemID = item[0]
-    let itemValue = item[1]
-    
-    let newEl = document.createElement("li")
-    
-    newEl.textContent = itemValue
-    
-    shoppingListEl.append(newEl)
+  let itemID = item[0];
+  let itemValue = item[1];
+  let newEl = document.createElement("li");
+
+  newEl.textContent = itemValue;
+  shoppingListEl.append(newEl);
+  newEl.addEventListener("click", function () {
+    let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
+    remove(exactLocationOfItemInDB);
+  });
 }
